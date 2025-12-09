@@ -1,3 +1,4 @@
+using UnityEditor.Analytics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,5 +31,10 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("X",moveInput.x);
             anim.SetFloat("Y",moveInput.y);
         }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "square")
+            Debug.Log("works");            
     }
 }
