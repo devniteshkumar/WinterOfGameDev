@@ -19,6 +19,11 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer = 0f;
     private Vector2 dashDirection;
 
+    public float AttackRange=1f;
+    public float AttackDamage=10f;
+    public LayerMask ZombieLayer;
+    public float health=100f;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -39,7 +44,16 @@ public class PlayerMovement : MonoBehaviour
             Dash();
         }
     }
+    public void OnShoot(InputValue value){
+        if(value.isPressed){
+            anim.SetTrigger("Attack");
+            Collider2D hit=Physics2D.OverlapCircle(transform.position,AttackRange, ZombieLayer);
+            if(hit!=null){
+                hit.GetComponent<ZombieAttributes>().TakeDamage(AttackDamage);
 
+            }
+        }
+    }
     void Dash()
     {
         if (isDashing)
@@ -57,6 +71,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(health>0){
+            Debug.Log("Player health:" + health);
+        }
         if (!isDashing)
         {
             rb.linearVelocity = moveInput * moveSpeed;
@@ -98,5 +115,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "square")
             Debug.Log("works");
+    }
+    void OnDrawGizmosSelected(){
+        Gizmos.color=Color.red;
+        Gizmos.DrawWireSphere(transform.position, AttackRange);
     }
 }

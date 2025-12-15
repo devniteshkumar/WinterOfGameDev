@@ -33,7 +33,7 @@ public class PlayerShooting : MonoBehaviour
         else
             Debug.Log("No collision");
 
-        RaycastHit2D[] hits = Physics2D.CircleCast(firePoint.position, aimDirection, range, toBeHit);
-        Debug.Log("Number of hits are :" +  hits.Length);
+        //RaycastHit2D[] hits = Physics2D.CircleCast(firePoint.position, aimDirection, range, toBeHit);
+        //Debug.Log("Number of hits are :" +  hits.Length);
     }
 }
