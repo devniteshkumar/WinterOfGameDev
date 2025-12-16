@@ -42,5 +42,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2735311947
+    locked: 0
+  - name: Collide
+    uniqueID: 3676094385
+    locked: 0
+  - name: Player
+    uniqueID: 4042189089
+    locked: 0
+  - name: Foreground
+    uniqueID: 2318082443
+    locked: 0
   m_RenderingLayers:
   - Default

@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if(health>0){
-            Debug.Log("Player health:" + health);
+           // Debug.Log("Player health:" + health);
         }
         if (!isDashing)
         {
